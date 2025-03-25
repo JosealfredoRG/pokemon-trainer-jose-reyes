@@ -42,5 +42,11 @@ Esta aplicación, desarrollada con Angular, permite al usuario registrarse como 
 2. **Ejecutar la imagen de docker**:
 
    ``` bash
-	docker run -p 8087:80 -it my-angular-app
+	docker run -p 8087:80 -it desafio-pokemon
+   ``` 
+
+2. **Abrir en el navegador**:
+
+   ``` bash
+	ir a la ruta: http://localhost:8087
    ``` 
