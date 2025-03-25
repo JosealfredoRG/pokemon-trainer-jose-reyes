@@ -18,6 +18,10 @@ Esta aplicación, desarrollada con Angular, permite al usuario registrarse como 
 
 ---
 
+### demo
+https://ornate-concha-f17fc8.netlify.app/profile
+
+
 ### 🧪 Modo Desarrollo (local)
 
 1. **Instalar dependencias**:
