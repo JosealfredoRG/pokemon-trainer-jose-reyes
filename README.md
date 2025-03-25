@@ -7,7 +7,7 @@ Esta aplicación, desarrollada con Angular, permite al usuario registrarse como 
 
 
 ---
-git remote set-url origin https://JosealfredoRG:Elfarto_12_98@github.com/username/repository.git
+
 ## 🚀 Instrucciones para ejecutar el proyecto
 
 ### ✅ Requisitos
