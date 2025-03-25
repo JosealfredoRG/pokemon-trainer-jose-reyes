@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output, Input, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { TrainerProfileService } from 'src/app/core/services/trainer-profile.service';
 import { ViewEnum } from 'src/app/core/models/view.enum';
 import { TrainerProfile } from 'src/app/core/models/trainer-profile.model';
@@ -23,7 +22,7 @@ export class ProfileCardComponent implements AfterViewInit{
     private cd: ChangeDetectorRef) { }
 
   ngAfterViewInit(): void {
-    // check if there is an image stored in local storage
+    //? check if there is an image stored in local storage
     const trainerProfile = this.trainerProfileService.getProfile();
     if (trainerProfile) {
       this.trainerProfile = trainerProfile;
@@ -45,6 +44,7 @@ export class ProfileCardComponent implements AfterViewInit{
       this.cd.detectChanges();
     };
 
+    //? emit upload image to store it in profile form
     this.trainerProfileService.imageChange$.emit(file);
     reader.readAsDataURL(file);
   }
@@ -57,14 +57,6 @@ export class ProfileCardComponent implements AfterViewInit{
     const today = new Date();
   
     let age = today.getFullYear() - birthdate.getFullYear();
-  
-    const hasNotHadBirthdayThisYear =
-      today.getMonth() < birthdate.getMonth() ||
-      (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate());
-  
-    if (hasNotHadBirthdayThisYear) {
-      age--;
-    }
   
     return `${age} años`;
   }

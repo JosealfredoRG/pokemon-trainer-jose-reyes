@@ -77,6 +77,12 @@ export class TeamSelectComponent implements AfterViewInit {
 
   saveSelection():void{
     this.pokeApi.savePokemonSelection(this.selectedTeam);
-    this.router.navigate(['/summary']);
+    
+    //? Fake loading time
+    this.generalService.showLoader$.emit(true);
+    setTimeout(() => {
+      this.router.navigate(['/summary']);
+    }, 1000);
+    
   }
 }
