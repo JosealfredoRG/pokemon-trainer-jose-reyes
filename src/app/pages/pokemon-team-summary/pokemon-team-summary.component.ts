@@ -14,9 +14,7 @@ export class PokemonTeamSummaryComponent implements OnInit{
   currentView: ViewEnum = ViewEnum.Summary;
   trainerProfile!: TrainerProfile;
 
-  constructor(
-    private trainerService: TrainerProfileService,
-    private router: Router) { }
+  constructor(private trainerService: TrainerProfileService) { }
 
   ngOnInit(): void {
     this.trainerProfile = this.trainerService.getProfile();

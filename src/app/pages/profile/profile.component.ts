@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { dateRangeValidator, fileToBase64 } from 'src/app/shared/utils';
 import { TrainerProfileService } from 'src/app/core/services/trainer-profile.service';
 import { TrainerProfile } from 'src/app/core/models/trainer-profile.model';
-import { GeneralService } from 'src/app/core/services/general.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,8 +26,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private trainerProfileService: TrainerProfileService,
-    private cd: ChangeDetectorRef,
-    private generalService:GeneralService
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {

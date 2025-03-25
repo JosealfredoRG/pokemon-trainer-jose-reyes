@@ -1,5 +1,6 @@
 import {  Component, OnInit } from '@angular/core';
 import { Gen1Pokemon } from 'src/app/core/models/gen1-pokemon.model';
+import { GeneralService } from 'src/app/core/services/general.service';
 import { PokemonApiService } from 'src/app/core/services/pokemon-api.service';
 
 @Component({
@@ -19,10 +20,16 @@ export class TeamSummaryComponent implements OnInit{
     speed: 180
   };
 
-  constructor(private pokemonService: PokemonApiService) {}
+  constructor(
+    private generalService: GeneralService,
+    private pokemonService: PokemonApiService
+    
+  ) {}
 
   ngOnInit(): void {
+    //? load pokemons
     this.selectedPokemons = this.pokemonService.getPokemonSelection();
+    this.generalService.showLoader$.emit(false);
   }
   
 

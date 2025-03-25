@@ -33,7 +33,7 @@ import { TeamSummaryComponent } from './components/team-summary/team-summary.com
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
+import { LoadingOverlayComponent } from './shared/components/loading-overlay/loading-overlay.component';
 
 
 @NgModule({

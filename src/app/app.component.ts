@@ -30,7 +30,7 @@ export class AppComponent implements OnInit{
   logout(): void {
     localStorage.clear();
     this.router.navigate(['/']).then(() => {
-      window.location.reload(); // 🔁 force page reload after redirect
+      window.location.reload();
     });
     
   }

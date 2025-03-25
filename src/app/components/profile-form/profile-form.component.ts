@@ -1,7 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TrainerProfile } from 'src/app/core/models/trainer-profile.model';
 import { TrainerProfileService } from 'src/app/core/services/trainer-profile.service';
 import { GeneralService } from 'src/app/core/services/general.service';
 
@@ -31,8 +30,7 @@ export class ProfileFormComponent implements AfterViewInit {
   constructor(
     private generalService: GeneralService,
     private trainerProfileService: TrainerProfileService,
-    private router: Router,
-    private cd: ChangeDetectorRef
+    private router: Router
   ) { }
 
   ngAfterViewInit(): void {
@@ -41,14 +39,18 @@ export class ProfileFormComponent implements AfterViewInit {
 
   onSubmit(): void {
     if (this.profileForm.valid) {
-      this.generalService.showLoader$.emit(true)
+
+      //? Emmitters
+      this.generalService.showLoader$.emit(true);
+      this.trainerProfileService.userName$.emit(this.profileForm.get('name')?.value);
+
+      //? store form data into localstorage
       this.trainerProfileService.saveProfile(this.profileForm.value);
-      this.trainerProfileService.userName$.emit(this.profileForm.get('name')?.value)
       this.router.navigate(['/team']);      
     }
   }
 
-  // Functions for removing a hobbie from the list
+  //? clear hoby selection
   removeHobby(): void {
     this.profileForm.get('hobby')?.setValue('');
   }
