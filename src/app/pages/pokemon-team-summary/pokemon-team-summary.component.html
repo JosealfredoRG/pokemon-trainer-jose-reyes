@@ -1,0 +1,16 @@
+<div class="mx-4 mt-5"> 
+    <app-header [currentView]="currentView"  [TrainerName]="trainerProfile.name"></app-header>
+    <!-- page content -->
+    <div class="d-flex justify-content-between mt-5">
+        <!-- profile image / card  -->
+        <div class="col d-flex justify-content-center">
+            <app-profile-card [currentView]="currentView" class="m-4" ></app-profile-card>
+        </div>
+
+        <!-- team Select  -->
+         <div class="col">
+            <app-team-summary>></app-team-summary>
+         </div>
+     </div>
+</div>
+

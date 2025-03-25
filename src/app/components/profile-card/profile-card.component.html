@@ -1,0 +1,65 @@
+<div  class="d-flex profile-card text-center p-5 flex-column">
+  
+  <!-- card headers -->
+
+  <!-- profile card header -->
+  <h3 class="mb-5 poppins-regular" *ngIf="currentView == ViewEnum.Profile">Imágen perfil</h3>
+
+  <!-- team select car header -->
+  <h2 class="mb-5 poppins-semibold" *ngIf="currentView == ViewEnum.Team">{{trainerProfile?.name}}</h2>
+
+  <!-- team summary card header -->
+  <div class="mb-5 d-flex flex-row justify-content-between" *ngIf="currentView == ViewEnum.Summary">
+    <h3 class="poppins-regular mt-auto ">Entrenador</h3>
+    <img class="icon" src="assets/svg/trainer-badge.svg" alt="trainer-badge" width="50" height="50"/>
+  </div>
+  <!-- end card headers -->
+
+  <!-- profile image -->
+  <div class="d-flex avatar-wrapper  justify-content-center align-self-center">        
+      <img [src]="imageSrc || 'assets/svg/user.svg'" alt="Avatar" class="align-self-center" [ngClass]="imageSrc ? 'avatar-img': 'avatar-default-img'" />
+  </div> 
+
+  <!-- Display input button for uploading image if is in profile page -->
+  <div class="d-flex flex-column px-3 w-100 mt-auto" *ngIf="currentView == ViewEnum.Profile">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" hidden #fileInput />
+      <button class="d-flex uploaded-file justify-content-between align-items-center w-100" (click)="fileInput.click()">
+          {{imgName}}
+          <img class="icon" src="assets/svg/upload.svg" alt="Upload" width="20" height="20" *ngIf="!imageSrc"/>
+          <img class="icon" src="assets/svg/delete.svg" alt="Upload" width="15" height="15" *ngIf="imageSrc"/>
+      </button>
+      <mat-error class="small" *ngIf="!imageSrc">
+          Este campo es obligatorio.
+      </mat-error>
+  </div>
+
+  <!-- Display profile info if is in team page -->
+  <div class="w-100 mt-auto"  *ngIf="currentView !== ViewEnum.Profile">
+    <table class="table table-borderless mb-0 profile-table mt-5">
+      <tbody>
+        <tr>
+          <th>
+              <h5 class="poppins-semibold text-start">Pasatiempo:</h5>
+          </th>
+          <td class="text-end">{{trainerProfile?.hobby}}</td>
+        </tr>
+        <tr>
+          <th>
+              <h5 class="poppins-semibold text-start">Edad:</h5>
+          </th>
+          <td class="text-end">{{calculateAge()}}</td>
+        </tr>
+        <tr *ngIf="trainerProfile?.isAdult">
+          <th>
+              <h5 class="poppins-semibold text-start">DUI:</h5>
+          </th>
+          <td class="text-end">
+              {{trainerProfile?.dui | formatDui}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+  

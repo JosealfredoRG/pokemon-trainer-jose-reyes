@@ -1,0 +1,19 @@
+.app-toolbar {
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 8px rgba(117, 117, 117, 0.1);
+    z-index: 10;
+  }
+  
+  .app-toolbar img {
+    height: 40px;
+  }
+
+  .rounded-button {
+    border-radius: 999px;
+    color: #185a7d;
+    border-color: #185a7d;
+    font-weight: 600;
+  }
+
+  

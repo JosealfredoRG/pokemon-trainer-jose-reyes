@@ -1,0 +1,34 @@
+<div class="mx-4 mt-5">
+    <app-loading-overlay></app-loading-overlay>
+    <!-- page title -->
+    <app-header [currentView]="currentView"></app-header>
+
+    <!-- page content -->
+     <div class="d-flex justify-content-between mt-5">
+        <!-- profile image / card  -->
+        <div class="col d-flex justify-content-center ">
+            <app-profile-card [currentView]="currentView"></app-profile-card>
+        </div>
+
+        <!-- form  -->
+         <div class="col">
+            <app-profile-form 
+            [profileForm]="profileForm" 
+            [minDate]="minDate" 
+            [maxDate]="maxDate" 
+            [duiMask]="duiMask" 
+            [duiPlaceholder]="duiPlaceholder"
+            [duiLabel]="duiLabel">
+            </app-profile-form>
+         </div>
+     </div>
+
+
+
+
+</div>
+
+
+
+
+

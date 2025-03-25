@@ -1,0 +1,61 @@
+@import '../../../styles.scss';
+
+.profile-card {
+    background-color: #FFC600;
+    border-radius: 24px;
+    width: 380px;
+    height: 650px;
+  }
+
+.avatar-wrapper {
+width: 250px;
+height: 250px;
+border: 6px solid white;
+border-radius: 50%;
+overflow: hidden;
+background-color:#E7EFF5;
+}
+
+.avatar-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.avatar-default-img {
+width: 50%;
+height: 50%;
+object-fit: contain;
+}
+
+.uploaded-file {
+background-color: white;
+border-radius: 12px;
+font-size: 12px;
+color: $text-blue !important;
+border: 1px dashed $text-blue;
+padding: 5%;
+opacity: 1;
+}
+
+.uploaded-file:hover {
+cursor: pointer;
+background-color: #f4f4f5;
+transition: background-color 0.3s ease;
+}
+  
+.icon{    
+float:right;
+}  
+
+.profile-table {
+    width: 100%;
+    background-color: transparent;
+}
+
+.profile-table th,
+.profile-table td {
+  background-color: transparent !important;
+}
+
+  

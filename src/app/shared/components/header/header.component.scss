@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: $text-blue;
+    ; /* Adjust based on actual blue */
+    font-weight: 400;
+  }
+
+
+  
+  .button-outline {
+    border-radius: 20px !important;
+    border: 2px solid $text-blue !important;
+  }

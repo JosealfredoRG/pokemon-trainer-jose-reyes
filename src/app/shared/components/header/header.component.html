@@ -1,0 +1,36 @@
+<div class="margin-top-20">
+
+    <!-- Header for the trainer profile form -->
+    <div *ngIf="currentView == ViewEnum.Profile">
+        <div class="profile-header">            
+            <mat-icon>arrow_back_ios</mat-icon>
+            <span class="poppins-medium"><strong class="poppins-bold">¡Hola!</strong> Configuremos tu perfil</span>           
+        </div>
+        <div class="ms-4 text-muted small">
+        Queremos conocerte mejor.
+        </div>
+    </div>
+    
+    <!-- Header for the pokemon team -->
+    <div *ngIf="currentView == ViewEnum.Team">
+        <div class="profile-header">            
+            <mat-icon>arrow_back_ios</mat-icon>
+            <span class="poppins-medium"><strong class="poppins-bold">¡Ya casi términamos!</strong></span>           
+        </div>
+        <div class="ms-4 text-muted small">
+            Revisa la información, y completa lo solicitado.
+        </div>
+    </div>
+
+    <div *ngIf="currentView == ViewEnum.Summary">        
+        <div class="profile-header d-flex flex-row">   
+            <h2 class="poppins-medium"><strong class="poppins-bold">¡Hola {{TrainerName}} !</strong></h2> 
+            <button 
+            class="button button-outline ms-5"
+            mat-stroked-button 
+            routerLink="[/profile]"
+            > <mat-icon>edit</mat-icon> <span class="poppins-regular small">Editar Perfil</span></button>                          
+        </div>        
+    </div>
+</div>
+

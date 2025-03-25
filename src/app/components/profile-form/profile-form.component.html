@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center align-items-center">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form-layout d-flex flex-column  px-5">
+        <div>
+            <h3 class="text-header poppins-regular">Tu información</h3>
+            <p class="text-muted mb-4 poppins-light">Completa la siguiente información para completar tu perfil</p>
+        </div>
+      
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error class="small" *ngIf="profileForm.get('name')?.hasError('required')">
+            Este campo es obligatorio.
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="mb-3">
+            <mat-label>Pasatiempo favorito</mat-label>
+            <mat-select formControlName="hobby" >
+              <mat-select-trigger>
+                <mat-chip-set>
+                  <mat-chip  [removable]="true" (removed)="removeHobby()">
+                    {{profileForm.get('hobby')?.value}}
+                    <mat-icon matChipRemove>cancel</mat-icon>
+                  </mat-chip>
+                </mat-chip-set>
+              </mat-select-trigger>
+              <mat-option *ngFor="let option of hobbies" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Cumpleaños</mat-label>
+          <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="birthdate"/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error class="small" *ngIf="profileForm.get('birthdate')?.hasError('required')">
+            Este campo es obligatorio.
+          </mat-error>
+          <mat-error class="small" *ngIf="profileForm.get('birthdate')?.hasError('tooEarly')">
+            La fecha es demasiado antigua.
+          </mat-error>
+          <mat-error class="small" *ngIf="profileForm.get('birthdate')?.hasError('tooLate')">
+            La fecha no puede ser en el futuro.
+          </mat-error>          
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="mb-4">
+          <mat-label>{{duiLabel}}</mat-label>
+          <input matInput formControlName="dui" 
+            [mask]="duiMask"          
+            [placeholder]="duiPlaceholder"/>
+            <mat-error class="small" *ngIf="profileForm.get('dui')?.hasError('required')">
+                Este campo es obligatorio.
+              </mat-error>
+        </mat-form-field>
+      
+        <button mat-flat-button color="primary" class="submit-button d-flex justify-content-center align-self-center p-4 ps-5 pe-5"
+          [disabled]="!profileForm.valid">
+          Continuar
+        </button>
+    </form>
+</div>
+  

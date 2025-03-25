@@ -1,0 +1,42 @@
+<div class="d-flex flex-column mt-2">
+    <h3 class="poppins-medium">Pokémon</h3>           
+    <h5 class="mt-1  mb-5 text-muted">
+    Selecciona 3 pokémon para que sean parte de tu equipo.
+    </h5>
+
+   <div class="d-flex flex-column align-items-center">
+        <mat-form-field class="w-50" appearance="outline">
+            <mat-icon matPrefix >search</mat-icon>          
+            <input type="text" matInput placeholder="Buscar por índice, nombre..." (input)="onSearch($event)">
+        </mat-form-field>
+        
+        <cdk-virtual-scroll-viewport [itemSize]="pokemonList.length" class="viewport">
+            <div class="d-flex flex-row justify-content-center" *cdkVirtualFor="let pokemons of groupedPokemonList">
+                <div *ngFor="let pokemon of pokemons"
+                    class="col-3 pokemon-card mt-4 m-2 mb-2"
+                    (click)="toggleSelect(pokemon)"
+                    [class.selected]="isSelected(pokemon)"
+                    [class.faded]="isMaxSelected() && !isSelected(pokemon)">
+
+                    <img [src]="pokemon.sprite" [alt]="pokemon.name" class="pokemon-img" />
+                    <div class="pokemon-id-name d-flex justify-content-center">
+                        <div class="pokemon-id mb-2">
+                            <span>#{{ pokemon.id }} </span>
+                            <span>{{ pokemon.name | titlecase }}</span>
+                            
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </cdk-virtual-scroll-viewport>
+   </div>
+
+   <button 
+    mat-flat-button 
+    color="primary" 
+    class="submit-button d-flex justify-content-center align-self-center p-4 ps-5 pe-5 m-3"
+    [disabled]="!isMaxSelected()"
+    (click)="saveSelection()"
+    >guardar</button>
+
+</div>
