@@ -5,6 +5,8 @@ Prueba técnica para el puesto de Front End Developer.
 
 Esta aplicación, desarrollada con Angular, permite al usuario registrarse como entrenador Pokémon, seleccionar sus 3 Pokémon iniciales de la primera generación y visualizar sus estadísticas.
 
+### demo Link
+https://pokemon-trainer-jose-reyes.netlify.app
 
 ---
 
@@ -17,9 +19,6 @@ Esta aplicación, desarrollada con Angular, permite al usuario registrarse como 
 - Docker (opcional, para entorno de producción)
 
 ---
-
-### demo
-https://ornate-concha-f17fc8.netlify.app/profile
 
 
 ### 🧪 Modo Desarrollo (local)
