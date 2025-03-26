@@ -43,4 +43,13 @@
       margin-bottom: 4px;
     }
   }
-  
+
+  .stats-table {
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .stats-table th,
+  .stats-table td {
+    background-color: transparent !important;
+  }

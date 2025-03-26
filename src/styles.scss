@@ -42,6 +42,13 @@ $text-blue: #185A7D;
     --mdc-outlined-text-field-container-color:$text-blue !important;
   }
 
+  .mat-mdc-progress-bar {
+    border-radius: 20px;
+  } 
+
+  .mdc-linear-progress__bar-inner {
+    border-radius: 20px;
+  }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
