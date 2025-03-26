@@ -5,6 +5,7 @@ import { Gen1Pokemon } from '../models/gen1-pokemon.model';
 import { Pokemon, pokemonType, Stat } from '../models/pokemon.model';
 import { PokemonGeneration, PokemonSpecies } from '../models/gen.model';
 import { GeneralService } from './general.service';
+import { PokemonSpec } from '../models/pokemon-species.model';
 
 const GEN1_CACHE_KEY = 'gen1PokemonCache';
 const POKEMON_SELECTION_CACHE_KEY = 'PokemonSelectionCache';
@@ -77,6 +78,15 @@ export class PokemonApiService {
         );
       })
     );
+  }
+
+  getSelectedPokemonColor(): Observable<PokemonSpec[]> {
+    const raw = localStorage.getItem(POKEMON_SELECTION_CACHE_KEY);
+    const selected: Gen1Pokemon[] = raw ? JSON.parse(raw) : [];
+    const requests = selected.map((p) =>
+      this.http.get<PokemonSpec>(`https://pokeapi.co/api/v2/pokemon-species/${parseInt(p.id.toString(), 10)}`)
+  );
+    return forkJoin(requests);
   }
 
   savePokemonSelection(pokemons: Gen1Pokemon[]) {
