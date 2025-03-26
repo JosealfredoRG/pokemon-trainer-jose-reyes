@@ -35,7 +35,7 @@ export class TeamSummaryComponent implements AfterViewInit{
     this.selectedPokemons = this.pokemonService.getPokemonSelection();
     this.cd.detectChanges()
     this.generalService.showLoader$.emit(false);
-
+    
     //? load pokemon colors for stats
     this.pokemonService.getSelectedPokemonColor().subscribe((responses) => {
       this.pokemonSpeciesInfo = responses
