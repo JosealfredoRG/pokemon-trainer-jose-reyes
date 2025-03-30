@@ -2,16 +2,21 @@
   <img src="assets/img/logo.png" alt="Logo" height="40" />
   <span class="spacer"></span>
 
-  <button mat-stroked-button [matMenuTriggerFor]="userMenu" class="rounded-button px-4" *ngIf="userName">
-    {{ userName }} <mat-icon class="ms-1" end>arrow_drop_down</mat-icon>
-  </button>
-  
-  <mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="logout()">
-      <mat-icon>logout</mat-icon>
-      <span>Cerrar sesión</span>
+  <div class="d-flex justify-content-evenly">
+    <button mat-stroked-button [matMenuTriggerFor]="userMenu" class="rounded-button px-4" *ngIf="userName">
+      {{ userName }} <mat-icon class="ms-1" end>arrow_drop_down</mat-icon>
     </button>
-  </mat-menu>
+  
+    <mat-icon matPrefix class="materia">search</mat-icon>
+    
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+  
   
   
 
