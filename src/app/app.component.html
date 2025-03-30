@@ -7,7 +7,7 @@
       {{ userName }} <mat-icon class="ms-1" end>arrow_drop_down</mat-icon>
     </button>
   
-    <mat-icon matPrefix class="materia">search</mat-icon>
+    <mat-icon *ngIf="userName" matPrefix class="m-2">search</mat-icon>
     
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item (click)="logout()">
