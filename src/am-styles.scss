@@ -1,0 +1,43 @@
+
+// File for customizing angular material components
+$text-blue: #185A7D; // mock color
+
+// form inputs
+.mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 15px !important;
+    --mdc-outlined-text-field-container-color:$text-blue !important;
+}
+
+// custom stats
+.mat-mdc-progress-bar {
+    border-radius: 20px;
+    --mdc-linear-progress-active-indicator-height: 10px;    
+    --mdc-linear-progress-track-height: 10px;
+}
+
+.mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+    background-color: transparent !important;
+    border-color: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    
+}
+
+.mdc-linear-progress__bar-inner {
+    border-radius: 20px;
+}
+
+// custom searchbar
+.mat-mdc-form-field-has-icon-prefix .mat-mdc-text-field-wrapper {
+    background-color: #f4f4f5;
+    border-radius: 15px;
+    --mdc-outlined-text-field-outline-color: transparent
+}
+
+// custom submit button color
+.mat-mdc-raised-button.mat-primary, .mat-mdc-unelevated-button.mat-primary.submit-button {
+    --mdc-filled-button-container-color: #185A7D;
+    --mdc-filled-button-label-text-color: white;
+}
